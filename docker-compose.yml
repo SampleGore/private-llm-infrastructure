@@ -26,7 +26,7 @@ services:
       - OLLAMA_BASE_URL=http://ollama:11434
       - OLLAMA_BASE_API_URL=http://ollama:11434
       - ENABLE_OLLAMA_SERVER=true
-      - WEBUI_SECRET_KEY=gHu2oY1aGQxhTyic87OpCWnZzR5Lq3MA9j0lrmSwDdUE6FB4PKbIfJkVtvseXN
+      - WEBUI_SECRET_KEY=replace-me-in-local-env
       - ENABLE_SIGNUP=true
       - ENABLE_PRESETS_ADMIN=true
       - ENABLE_ADMIN_UI=true
