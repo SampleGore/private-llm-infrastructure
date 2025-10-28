@@ -1,6 +1,7 @@
 # Secrets and environment variables
 .env
 .env.*
+!.env.sample
 *.key
 *.pem
 *.bak
