@@ -3,6 +3,11 @@
 .env.*
 *.key
 *.pem
+*.bak
+openwebui.bak/
+*.secret
+*.credentials
+
 
 # Local AI models (avoid uploading huge files)
 models/
