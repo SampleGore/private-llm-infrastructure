@@ -1,0 +1,14 @@
+{
+	"webhook_url": "",
+	"auth": {
+		"admin": {
+			"show": true
+		},
+		"jwt_expiry": "-1"
+	},
+	"ui": {
+		"enable_signup": true,
+		"default_user_role": "admin",
+		"enable_community_sharing": true
+	}
+}

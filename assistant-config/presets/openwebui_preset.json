@@ -1,0 +1,14 @@
+{
+    "name": "Cybersecurity Assistant (Hybrid)",
+    "model": "llama3.2:3b-instruct-q4_K_M",
+    "systems": "# System prompt\n(Contents of system/system_prompt.md will be loaded here)",
+    "params": {
+        "temperature": 0.3,
+        "top_p": 0.9,
+        "max_tokens": 1024
+    },
+    "ui": {
+        "markdown": true,
+        "show_citations": true
+    }
+}

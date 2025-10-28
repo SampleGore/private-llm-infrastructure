@@ -1,0 +1,50 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "127.0.0.1:11435:11434" #bind to localhost only"
+    volumes:
+      - "D:/AI_DATA/models:/root/.ollama" #models folder
+      - "D:/AI_DATA/knowledge:/corpus:ro" #docs for RAD (read-only)
+    read_only: true
+    tmpfs: ["/tmp", "/run"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "5" }
+
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:0.2.5
+    container_name: openwebui
+    depends_on:
+      - ollama
+    ports:
+      - "127.0.0.1:8095:8080"
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_BASE_API_URL=http://ollama:11434
+      - ENABLE_OLLAMA_SERVER=true
+      - WEBUI_SECRET_KEY=gHu2oY1aGQxhTyic87OpCWnZzR5Lq3MA9j0lrmSwDdUE6FB4PKbIfJkVtvseXN
+      - ENABLE_SIGNUP=true
+      - ENABLE_PRESETS_ADMIN=true
+      - ENABLE_ADMIN_UI=true
+    volumes:
+      - "D:/AI_DATA/openwebui:/app/backend/data"
+
+
+  #ollama_proxy:
+  #  image: nginx:alpine
+  #  container_name: ollama-proxy
+  #  depends_on:
+  #    - ollama
+  #  ports:
+  #    - "127.0.0.1:8091:80"         # <- this publishes port 80 to 8091 on the host
+  #  volumes:
+  #    - "D:/AI_DATA/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro"
+  #  read_only: true
+  #  tmpfs: ["/var/cache/nginx","/var/run"]
+  #  security_opt: ["no-new-privileges:true"]
+  #  cap_drop: ["ALL"]
+

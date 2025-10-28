@@ -1,0 +1,16 @@
+# Secrets and environment variables
+.env
+.env.*
+*.key
+*.pem
+
+# Local AI models (avoid uploading huge files)
+models/
+openwebui/models/
+
+# Cache + runtime clutter
+__pycache__/
+*.log
+.DS_Store
+tmp/
+data/
